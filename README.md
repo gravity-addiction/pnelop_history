@@ -72,3 +72,34 @@ By default any clickable tag with class="pushLink" will have its click event rew
 ```
 <a href="index.html" class="pushLink">Homepage</a>
 ```
+
+Callable functions within PNelop_History
+PNelOP_History.init(booterFunction);
+* booterFunction: function routine to deal with url parsing and building each page
+
+
+PNelOP_History.loadPushLinks(querySelect); // resets object
+* querySelect: document.querySelectorAll query for objects
+
+
+PNelOP_History.pushURL(url);
+// url to push to browser url bar and fires popstate for page
+* url: parseable url
+
+
+PNelOP_History.fetchPage(url);
+// fetchs the url without updating browser url
+* url: parseable url
+
+PNelOP_History.addLink();
+// interface directly to pushState or window.location depending on if html5 history is enabled
+* url: parseable url
+
+PNelOP_History.getSearchParams([url]);
+PNelOP_History.getHashParams([url]);
+* url: parseable url, optional: uses window.location when omitted
+// Parses url or window.location for either search or hash parameters and returns them in an object
+
+
+PNelOP_History.popState();
+// Fires the window popstate, which is the main event html5 history runs off of
