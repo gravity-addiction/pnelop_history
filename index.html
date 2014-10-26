@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PNelOP Basic Demo</title>
+<script language="javascript" src="pnelop_history.js"></script>
+<script language="javascript">
+
+function bootProcess() {
+  var tURL, tParsed = document.createElement("a"), pURL, pParsed = document.createElement("a");
+  
+  // parse argument[0] .. typically current url passed
+  if (arguments.length>0 && (typeof arguments[0]) == 'string') { tURL = arguments[0]; } else { return; }
+  if (!!tURL) tParsed.href = tURL;
+
+  // parse argument[1] .. typically historical previous url passed
+  if (arguments.length>1 && (typeof arguments[1]) == 'string') { pURL = arguments[1]; }
+  if (!!pURL) pParsed.href = pURL;
+  
+  // use PNelOP_History defined functions to get search and hash parameters
+  // also possible to use tURL.search tURL.hash  pURL.search pURL.hash for the data
+  var searchParams={}; try { searchParams = PNelOP_History.getSearchParams(); } catch(e) { }
+  var hashParams={}; try { hashParams = PNelOP_History.getHashParams(); } catch(e) { }
+        
+  // Where the user defined stuff comes in, this statements checks for ?linkQuery passed and alerts its value. as a demo
+  if (typeof searchParams == 'object' && typeof searchParams.linkQuery == 'string') alert("Link Query: "+searchParams.linkQuery);
+
+  // Attempt to reload PNelOP_History pushLink abilities
+  // add class="pushLink" href="myurl.html" to any clickable tag to implement html5 abilities automatically
+  try { PNelOP_History.loadPushLinks(); } catch(e) { }
+return true;	  
+}
+
+
+// Let PNelOP History know what function we are using for processing
+// passed to function are two arguments
+// argument[0] - current url requested
+// argument[1] - historical record of previous url
+PNelOP_History.init(bootProcess);
+</script>
+</head>
+<body>
+<a href="?linkQuery=Foo" class="pushLink">Foo</a>
+</body>
+</html>
