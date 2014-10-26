@@ -20,9 +20,9 @@ function bootProcess() {
 }
 PNelOP_History.init(bootProcess);
 </script>
-
-PNelOP_History.init();
 ```
+
+Calling PNelOP_History.init();
 argument sent to init needs to be a function prepared to receive the current URL as first argument.
 
 Typically processing the incoming url can be done two ways
