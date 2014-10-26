@@ -27,7 +27,7 @@ argument sent to init needs to be a function prepared to receive the current URL
 
 Typically processing the incoming url can be done two ways
 
-1. load the url into a javascript <a> tag and let the browser parse your url into parts, http://www.w3schools.com/jsref/obj_location.asp
+1. load the url into a javascript &lt;a&gt; tag and let the browser parse your url into parts, http://www.w3schools.com/jsref/obj_location.asp
 ```
 var urlParsed = document.createElement("a");
 urlParsed.href = arguments[0];
