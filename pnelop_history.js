@@ -177,7 +177,7 @@ PNelOP_History = (function () {
       // Check to see if PNelOP_History is enabled
       if (!_enabled) {
         location.href=url;
-        return false;
+        return true;
       }
 
       // Check against current url
@@ -192,6 +192,7 @@ PNelOP_History = (function () {
 
       // PopState to fetchPage
       this._popState();
+    return false;
     };
 
     PNelOP_History.prototype._fetchPage = function() {
