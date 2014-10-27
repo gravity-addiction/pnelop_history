@@ -6,8 +6,6 @@
 <script>
 function bootProcess() {
   var urlQuery = PNelOP_History.getSearchParams();
-  console.log(urlQuery);
-  console.log(typeof urlQuery.search)
   if (typeof urlQuery.search == typeof undefined) return; // no search variable in querystring so return
   
   // creates <p> elements, fills with search= querystring value, appends <p> element to searched div
