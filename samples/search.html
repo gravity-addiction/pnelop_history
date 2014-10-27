@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PNelOP Most Basic Demo</title>
+<script src="../pnelop_history.js"></script>
+<script>
+function bootProcess() {
+  var urlQuery = PNelOP_History.getSearchParams();
+  console.log(urlQuery);
+  console.log(typeof urlQuery.search)
+  if (typeof urlQuery.search == typeof undefined) return;
+  
+  var p = document.createElement('p');
+  p.innerHTML = 'Searched For: '+urlQuery.search;
+  document.getElementById('searched').appendChild(p);
+}
+PNelOP_History.init(bootProcess);
+</script>
+</head>
+<body>
+<form id="searchFrm" onSubmit="return PNelOP_History.pushURL('?search='+encodeURIComponent(document.getElementById('search').value));">
+  <label for="search">Search:&nbsp;</label><input type="text" name="search" id="search" size="25" placeholder="Search..." /><button type="submit">Search</button>
+</form>
+<div id="searched"></div>
+</body>
+</html>
